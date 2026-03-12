@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTM Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <h1>UTM Generator</h1>
+
+      <form id="utm-form" novalidate>
+        <label for="base-url">Link</label>
+        <input id="base-url" class="input-link" name="base-url" type="url" placeholder="https://example.com/page" required>
+
+        <div class="attribute-row">
+          <div class="attribute-field">
+            <label for="campaign">Campaign</label>
+            <input id="campaign" name="campaign" type="text" placeholder="spring_sale">
+            <p class="blurb">Identifies a specific product promotion or strategic campaign.</p>
+          </div>
+
+          <div class="attribute-field">
+            <label for="source">Source</label>
+            <input id="source" name="source" type="text" placeholder="newsletter">
+            <p class="blurb">Identifies which site sent the traffic.</p>
+          </div>
+
+          <div class="attribute-field">
+            <label for="medium">Medium</label>
+            <input id="medium" name="medium" type="text" placeholder="email">
+            <p class="blurb">Identifies what type of link was used, such as email or pay-per-click advertising.</p>
+          </div>
+
+          <div class="attribute-field">
+            <label for="content">Content</label>
+            <input id="content" name="content" type="text" placeholder="banner_a">
+            <p class="blurb">Identifies what was clicked to reach the site, such as a banner or text link.</p>
+          </div>
+        </div>
+
+        <button type="submit">Generate UTM Link</button>
+      </form>
+
+      <div class="result" id="result" aria-live="polite" hidden>
+        <p class="result-label">Generated URL</p>
+        <code id="output-url"></code>
+        <button type="button" id="copy-btn">Copy Link</button>
+      </div>
+
+      <p class="error" id="error-msg" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

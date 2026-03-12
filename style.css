@@ -1,0 +1,170 @@
+:root {
+  --bg-start: #f6f0ff;
+  --bg-end: #ebe1ff;
+  --card: #ffffff;
+  --text: #2b1f48;
+  --muted: #5f4f85;
+  --accent: #7c57cf;
+  --accent-dark: #6643b5;
+  --border: #d7c9f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Ubuntu", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124, 87, 207, 0.24), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(167, 132, 236, 0.24), transparent 42%),
+    linear-gradient(135deg, var(--bg-start), var(--bg-end));
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 620px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 14px 36px rgba(31, 42, 47, 0.12);
+  animation: rise-in 350ms ease-out;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  text-align: center;
+}
+
+form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.attribute-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.attribute-field {
+  width: calc(50% - 0.35rem);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.blurb {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+}
+
+.input-link {
+  padding: 1rem;
+  font-size: 1.05rem;
+}
+
+input:focus {
+  outline: 2px solid rgba(124, 87, 207, 0.28);
+  border-color: var(--accent);
+}
+
+button {
+  margin-top: 0.4rem;
+  padding: 0.8rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 120ms ease, transform 120ms ease;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.result {
+  margin-top: 1.2rem;
+  padding: 0.9rem;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  background: #f8f4ff;
+}
+
+.result-label {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+code {
+  display: block;
+  padding: 0.65rem;
+  border-radius: 8px;
+  background: #f0e8ff;
+  color: #2b1f48;
+  word-break: break-all;
+  margin-bottom: 0.75rem;
+}
+
+.error {
+  min-height: 1.25rem;
+  margin-bottom: 0;
+  color: #b02323;
+  font-weight: 600;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .attribute-field {
+    width: 100%;
+  }
+}
